@@ -68,6 +68,8 @@ public class MoveController : MonoBehaviour
             rBody.velocity = new Vector2(rBody.velocity.x, 0f);
         }
 
+
+        anim.SetBool("GamePaused", PauseMenuController.GamePaused);
         anim.SetFloat("MoveX", Input.GetAxisRaw("Horizontal"));
         anim.SetFloat("MoveY", Input.GetAxisRaw("Vertical"));
         anim.SetBool("PlayerMoving", playerMove);

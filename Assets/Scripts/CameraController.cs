@@ -34,7 +34,10 @@ public class CameraController : MonoBehaviour
         if(playerStates.playerRan) moveSpeed = 7f;
         else moveSpeed = 2f;
 
-        targetPos = new Vector3(followTarget.transform.position.x, followTarget.transform.position.y, transform.position.z);
+        targetPos = new Vector3(
+            Mathf.Clamp(followTarget.transform.position.x, -2f, 7f), 
+            Mathf.Clamp(followTarget.transform.position.y, -11f, -4f),
+            transform.position.z);
         transform.position = Vector3.Lerp (transform.position, targetPos, moveSpeed * Time.deltaTime);
     }
 }
